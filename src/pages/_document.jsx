@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {
+  Fragment,
+} from 'react';
 
 import Document, {
   Head,
@@ -30,8 +32,8 @@ class CustomDoc extends Document {
             href="https://fonts.googleapis.com/icon?family=Material+Icons"
           />
           <link
+            href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap"
           />
           <style jsx global>
             {`
@@ -85,7 +87,7 @@ CustomDoc.getInitialProps = async (ctx) => {
   const originalRenderPage = ctx.renderPage;
 
   ctx.renderPage = () => originalRenderPage({
-    enhanceApp: App => props => sheets.collect(
+    enhanceApp: (App) => (props) => sheets.collect(
       <App {...props} />, // eslint-disable-line
     ),
   });
@@ -98,10 +100,10 @@ CustomDoc.getInitialProps = async (ctx) => {
      * Styles fragment is rendered after the app and page rendering finish.
      */
     styles: [
-      <React.Fragment key="styles">
+      <Fragment key="styles">
         {initialProps.styles}
         {sheets.getStyleElement()}
-      </React.Fragment>,
+      </Fragment>,
     ],
   };
 };
