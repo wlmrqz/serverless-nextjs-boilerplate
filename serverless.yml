@@ -1,0 +1,32 @@
+service: serverless-nextjs-boilerplate
+package:
+  exclude:
+    - './**'
+    - '!./node_modules/**'
+    - '!./.next/**'
+    - '!./src/public/**'
+    - '!./src/server/handler.js'
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: ${opt:stage, 'dev'}
+  region: ${env:AWSREGION}
+functions:
+  index:
+    handler: src/server/handler.handler
+    environment:
+      APIURI: ${env:APIURI}
+      AWSREGION: ${env:AWSREGION}
+      AWSPOOLID: ${env:AWSPOOLID}
+      AWSCLIENTID: ${env:AWSCLIENTID}
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
+plugins:
+  - serverless-apigw-binary
+  - serverless-dotenv-plugin
+  - serverless-offline
+custom:
+  apigwBinary:
+    types:
+      - 'image/*'

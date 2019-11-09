@@ -1,0 +1,29 @@
+# Dependencis
+# ------------
+node_modules/
+
+
+# Testing
+# -------
+coverage/
+
+
+# Production
+# ----------
+.next/
+.serverless/
+
+
+# Environments
+# ------------
+.DS_Store
+.env.development
+.env.production
+.env.test
+
+
+# Logs
+# ----
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

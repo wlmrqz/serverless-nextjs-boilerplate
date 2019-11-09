@@ -1,0 +1,23 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "allowImportExportEverywhere": true,
+    "sourceType": "module"
+  },
+  "rules": {
+    "arrow-parens": [0],
+    "jsx-a11y/anchor-is-valid": [0],
+    "jsx-a11y/click-events-have-key-events": [0],
+    "jsx-a11y/no-static-element-interactions": [0],
+    "object-curly-newline": [0],
+    "max-len": [0],
+    "no-underscore-dangle": [0],
+    "react/jsx-fragments": [0]
+  }
+}
