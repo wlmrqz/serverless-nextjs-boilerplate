@@ -1,4 +1,4 @@
-service: serverless-nextjs-boilerplate
+service: jabbo-admin-web-client
 package:
   exclude:
     - './**'

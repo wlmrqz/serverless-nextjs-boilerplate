@@ -15,6 +15,7 @@ import {
 
 import withRedux from '../hocs/with-redux';
 import defaultTheme from '../themes/default';
+import config from '../settings/config';
 
 class CustomApp extends App {
   render() {
@@ -25,11 +26,14 @@ class CustomApp extends App {
       router,
     } = this.props;
 
+    const env = config.parse(router);
+
     return (
       <Provider store={reduxStore}>
         <CssBaseline />
         <ThemeProvider theme={defaultTheme}>
           <Component
+            config={env}
             pageProps={pageProps}
             router={router}
           />

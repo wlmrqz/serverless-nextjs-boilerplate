@@ -10,16 +10,24 @@ import {
 
 import {
   authLoginAction,
-} from '../../redux/auth/auth-actions';
+} from '../redux/auth/auth-actions';
 
-const AuthLoginPage = ({ login }) => {
+const HomePage = ({ login, config }) => {
   useEffect(() => {
     login();
   }, []);
 
   return (
     <div>
-      AuthLoginPage
+      HomePage
+      <div>
+        <span>
+          ENV:&nbsp;
+        </span>
+        <span>
+          {config.APIURI}
+        </span>
+      </div>
     </div>
   );
 };
@@ -28,8 +36,9 @@ const mdtp = (dispatch) => ({
   login: () => dispatch(authLoginAction()),
 });
 
-AuthLoginPage.propTypes = {
+HomePage.propTypes = {
+  config: PropTypes.instanceOf(Object).isRequired,
   login: PropTypes.func.isRequired,
 };
 
-export default connect(null, mdtp)(AuthLoginPage);
+export default connect(null, mdtp)(HomePage);

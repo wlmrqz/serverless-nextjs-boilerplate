@@ -18,7 +18,8 @@ const store = createStore(
 
 const storeLogger = () => {
   if (process.env.NODE_ENV === 'development') {
-    console.log('STORE:', store.getState()); // eslint-disable-line
+    // eslint-disable-next-line
+    console.log('STORE:', store.getState());
   }
 };
 

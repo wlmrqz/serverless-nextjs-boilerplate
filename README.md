@@ -8,6 +8,7 @@
 - Material UI
 - Next JS v9.x.x
 - Redux Configured
+-	Env Vars Not Leaked in the Bundles
 
 
 ---

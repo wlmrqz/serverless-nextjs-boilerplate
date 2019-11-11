@@ -1,6 +1,4 @@
-import React, {
-  Fragment,
-} from 'react';
+import React from 'react';
 
 import Document, {
   Head,
@@ -87,7 +85,7 @@ CustomDoc.getInitialProps = async (ctx) => {
   const originalRenderPage = ctx.renderPage;
 
   ctx.renderPage = () => originalRenderPage({
-    enhanceApp: (App) => (props) => sheets.collect(
+    enhanceApp: App => props => sheets.collect(
       <App {...props} />, // eslint-disable-line
     ),
   });
@@ -100,10 +98,10 @@ CustomDoc.getInitialProps = async (ctx) => {
      * Styles fragment is rendered after the app and page rendering finish.
      */
     styles: [
-      <Fragment key="styles">
+      <React.Fragment key="styles">
         {initialProps.styles}
         {sheets.getStyleElement()}
-      </Fragment>,
+      </React.Fragment>,
     ],
   };
 };

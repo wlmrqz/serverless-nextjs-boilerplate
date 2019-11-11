@@ -1,12 +1,13 @@
 {
-  "name": "serverless-nextjs-boilerplate",
+  "name": "jabbo-admin",
   "version": "1.0.0",
   "scripts": {
     "dev": "next ./src",
     "build": "next build ./src",
     "start": "next build ./src && next start ./src",
-    "offline": "next build ./src && serverless offline",
-    "deploy": "next build ./src && serverless deploy"
+    "offline": "SLS_STAGE=offline next build ./src && serverless offline",
+    "deploy-dev": "SLS_STAGE=dev next build ./src && serverless deploy --stage dev",
+    "deploy-prod": "SLS_STAGE=prod next build ./src && serverless deploy --stage prod"
   },
   "keywords": [],
   "author": "Jabbo, Inc.",
@@ -17,9 +18,11 @@
     "@material-ui/styles": "^4.6.0",
     "@zeit/next-css": "^0.2.1-canary.4",
     "amazon-cognito-identity-js": "^3.2.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "next": "^9.1.2",
     "prop-types": "^15.7.2",
+    "query-string": "^6.8.3",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-redux": "^7.1.3",

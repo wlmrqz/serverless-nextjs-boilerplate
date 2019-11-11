@@ -5,26 +5,30 @@ import {
   AUTH_INITIAL,
 } from './auth-action-types';
 
-export const authLoading = (payload) => ({
+export const authLoadingAction = (payload) => ({
   type: AUTH_LOADING,
   payload,
 });
 
-export const authSuccess = (payload) => ({
+export const authSuccessAction = (payload) => ({
   type: AUTH_SUCCESS,
   payload,
 });
 
-export const authFailure = (payload) => ({
+export const authFailureAction = (payload) => ({
   type: AUTH_FAILURE,
   payload,
 });
 
-export const authInitial = (payload) => ({
+export const authInitialAction = (payload) => ({
   type: AUTH_INITIAL,
   payload,
 });
 
-export const authAuthenticate = () => (dispatch) => {
-  dispatch(authLoading(true));
+export const authLoginAction = () => (dispatch) => {
+  try {
+    dispatch(authLoadingAction(true));
+  } catch (error) {
+    dispatch(authFailureAction(error));
+  }
 };
